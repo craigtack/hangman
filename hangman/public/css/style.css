@@ -1,0 +1,165 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+/*
+********************
+* =container
+********************
+*/
+
+.container {
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*
+********************
+* =header
+********************
+*/
+
+header {
+	height: 100px;
+}
+
+.banner {
+	width: 480px;
+	float: left;
+}
+
+.banner h1 {
+	font-size: 46px;
+	color: teal;
+	text-indent: -1px;
+	margin-top: 20px;
+}
+
+.new_game {
+	width: 280px;
+	margin: 45px 20px 0 0;
+	float: right;
+}
+
+.new_game a {
+	width: 20px;
+	height: 10px;
+	padding: 5px;
+	border-radius: 3px;
+	text-decoration: none;
+	background: #ff6e00;
+	color: #fff;
+}
+
+/*
+********************
+* =game
+********************
+*/
+
+.game {
+	height: 300px;
+}
+
+.gallow {
+	width: 500px;
+	margin: 0 20px 0 -20px;
+	float: left;
+}
+
+.gallow img {
+	height: 300px;
+	width: 300px;
+}
+
+.statistics {
+	width: 300px;
+	margin-top: 20px;
+	float: right;
+}
+
+.statistics h3 {
+	color: #3e3e3e;
+	line-height: 0.7em;
+	padding-right: 50px;
+}
+
+.statistics strong {
+	color: #000;
+}
+
+#result_message {
+	width: 200px;
+	margin: 0 auto;
+}
+
+#result_message h4, #result_message p {
+	padding-right: 50px;
+}
+
+/*
+********************
+* =word
+********************
+*/
+
+.word {
+	height: 100px;
+	width: 800px;
+}
+
+.word table {
+	table-layout: fixed;
+	width: 600px;
+	height: 51px;
+	margin: 0 auto;
+	border-spacing: 10px;
+}
+
+.word td {
+	width: 10px;
+	font-size: 26px;
+	border-bottom: 1px solid black;
+	padding: 0;
+}
+
+#success {
+	color: #4cc639;
+}
+
+#failure {
+	color: #de2121;
+}
+
+/*
+********************
+* =letters
+********************
+*/
+
+#letters ul {
+	list-style: none;
+}
+
+#letters li {
+	font-size: 20px;
+	display: inline;
+	margin-right: 10px;
+}
+
+#letters a {
+	text-decoration: none;
+	color: #717171;
+}
+
+#letters a:hover {
+	font-weight: bold;
+	color: #3e3e3e;
+}
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+}
