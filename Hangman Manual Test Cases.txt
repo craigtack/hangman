@@ -1,0 +1,32 @@
+1. All occurrences of letter filled in.
+setup: Begin a new game.
+steps: Proceed by guessing vowels and then consonants.
+result: All occurrences of a letter are filled in when entered.
+note: The above should be improved to allow for easier execution of test case to reach result.
+
+2. Game won - All letters disabled
+setup: Begin a new game.
+steps: Play game until win occurs.
+result: All letters should not be visible and their links should be inactive.
+
+3. Game lost - All letters disabled
+setup: Begin a new game.
+steps: Play game until loss occurs.
+result: All letters should not be visible and their links should be inactive.
+
+4. KeyHandler - Lowercase letter entered
+setup: Begin a new game.
+steps: Press the letter ‘a’ on the keyboard with caps lock off.
+result: Either the gallow progresses to the next stage OR the letter is filled in where it exists in the word.
+
+5. KeyHandler - Uppercase letter entered
+setup: Begin a new game.
+steps: Press the letter ‘a’ on the keyboard with caps lock on.
+result: Either the fallow progresses to the next stage OR the letter is filled in where it exists in the word.
+
+6. KeyHandler - Number entered
+setup: Begin a new game.
+steps: Press the number 1 on the keyboard.
+result: Nothing happens.
+
+
