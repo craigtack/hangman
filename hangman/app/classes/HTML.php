@@ -1,10 +1,13 @@
-<?php namespace Hangman\HTML;
+<?php 
+
+namespace Hangman\Classes;
 
 class HTML {
 	public static function td(array $items) {
 		$markup = '';
 
-		for ($i = 0; $i < sizeof($items); $i++) {
+		$length = count($items);
+		for ($i = 0; $i < $length; $i++) {
 			$markup .= "<td>{$items[$i]}</td>";
 		}
 
