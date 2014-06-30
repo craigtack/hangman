@@ -1,4 +1,6 @@
-<?php namespace Hangman\Word;
+<?php 
+
+namespace Hangman\Classes;
 
 class Word {
 	public static function only_letters($string) {
