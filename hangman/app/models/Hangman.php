@@ -1,18 +1,20 @@
-<?php namespace Hangman\Hangman;
+<?php 
 
-use Hangman\Dictionary as Dictionary;
-use Hangman\HTML as HTML;
-use Hangman\Word as Word;
+namespace Hangman\Models;
+
+use Hangman\Classes\Dictionary;
+use Hangman\Classes\HTML;
+use Hangman\Classes\Word;
 
 class Hangman {
-	private $word;
-	private $word_cells;
-	private $incorrect_guesses;
-	private $letters_guessed;
-	private $gallow_stage;
+	public $word;
+	public $word_cells;
+	public $incorrect_guesses;
+	public $letters_guessed;
+	public $gallow_stage;
 
 	public function __construct() {
-		$this->word = Dictionary\Dictionary::get_random_word_from_file('/usr/share/dict/words');
+		$this->word = Dictionary::get_random_word_from_file('/usr/share/dict/words');
 		if (!$this->word)
 			throw new \Exception('Error: unable to read words file');
 
@@ -24,7 +26,7 @@ class Hangman {
 
 	public function check_letter($letter) {
 		// sanity check for letters only
-		if (Word\Word::only_letters($letter)) {
+		if (Word::only_letters($letter)) {
 			// remove additional chars if present
 			$letter = substr($letter, 0, 1);
 		} else {
@@ -32,11 +34,11 @@ class Hangman {
 		}
 
 		if ($this->new_guess($letter)) {
-			$this->set_letters_guessed($letter);
+			$this->update_letters_guessed($letter);
 
 			if ($this->incorrect_guess($letter)) {
-				$this->increase_gallow_stage();
-				$this->increase_incorrect_guesses();
+				$this->gallow_stage++;
+				$this->incorrect_guesses++;
 			}
 		}
 
@@ -50,9 +52,10 @@ class Hangman {
 		$incorrect = true;
 
 		// check for occurences of letter in word and set in word cells if found
-		for ($i = 0; $i < sizeof($this->word_cells); $i++) {
+		$length = count($this->word_cells);
+		for ($i = 0; $i < $length; $i++) {
 			if (substr($this->word, $i, 1) == strtolower($letter)) {
-				$this->set_word_cells($i, strtoupper($letter));
+				$this->update_word_cells($i, strtoupper($letter));
 				$incorrect = false;
 			}
 		}
@@ -63,48 +66,15 @@ class Hangman {
 		return !in_array(' ', $this->word_cells);
 	}
 
-	// getters and setters
-	public function get_word() {
-		return $this->word;
+	public function get_word_cells_formatted() {
+		return HTML::td($this->word_cells);
 	}
 
-	public function set_word($word) {
-		$this->word = $word;
-	}
-
-	public function get_incorrect_guesses() {
-		return $this->incorrect_guesses;
-	}
-
-	public function increase_incorrect_guesses() {
-		$this->incorrect_guesses++;
-	}
-
-	public function get_letters_guessed() {
-		return $this->letters_guessed;
-	}
-
-	public function set_letters_guessed($guess) {
+	public function update_letters_guessed($guess) {
 		$this->letters_guessed .= strtoupper($guess);
 	}
 
-	public function get_word_cells() {
-		return $this->word_cells;
-	}
-
-	public function get_word_cells_formatted() {
-		return HTML\HTML::td($this->word_cells);
-	}
-
-	public function set_word_cells($index, $letter) {
+	public function update_word_cells($index, $letter) {
 		$this->word_cells[$index] = $letter;
-	}
-
-	public function get_gallow_stage() {
-		return $this->gallow_stage;
-	}
-
-	public function increase_gallow_stage() {
-		$this->gallow_stage++;
 	}
 }
