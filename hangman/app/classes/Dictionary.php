@@ -1,4 +1,6 @@
-<?php namespace Hangman\Dictionary;
+<?php 
+
+namespace Hangman\Classes;
 
 class Dictionary {
 	public static function get_random_word_from_file($path) {
