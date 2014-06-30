@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/disable.js"></script>
-	<script src="js/keyHandler.js"></script>
+	<script src="js/handlers.js"></script>
 @stop
 
 @section('content')
@@ -14,7 +14,7 @@
 			<h1>hangman</h1>
 		</div>
 		<div class="new_game">
-			<a href="/">New Game</a>
+			<a 	href="/" onclick="return newGameHandler();">New Game</a>
 		</div>
 	</header>
 	<div class="game">
