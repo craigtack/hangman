@@ -1,22 +1,24 @@
 <?php
 
-use Hangman\Hangman as Hangman;
+namespace Hangman\Tests;
 
-class HangmanTest extends TestCase {
+use Hangman\Models\Hangman;
+
+class HangmanTest extends \TestCase {
 	public function test_check_letter_function_passing_more_than_one_char() {
-		$hangman = new Hangman\Hangman();
+		$hangman = new Hangman();
 		$hangman->check_letter('abc');
 
-		$result = $hangman->get_letters_guessed();
+		$result = $hangman->letters_guessed;
 
 		$this->assertEquals('A', $result);
 	}
 
 	public function test_check_letter_function_passing_numbers() {
-		$hangman = new Hangman\Hangman();
+		$hangman = new Hangman();
 		$hangman->check_letter('123');
 
-		$result = $hangman->get_letters_guessed();
+		$result = $hangman->letters_guessed;
 
 		$this->assertEquals('', $result);
 	}
