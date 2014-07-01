@@ -12,7 +12,7 @@ function newGameHandler() {
 		var success = document.getElementById('success');
 		var failure = document.getElementById('failure');
 
-		if (success === null || failure === null) {
+		if (success == null && failure == null) {
 			if (!confirm('Are you want to start a new game? Doing so will count as a loss')) {
 				return false;
 			}
