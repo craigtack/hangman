@@ -9,17 +9,17 @@ class HangmanTest extends \TestCase {
 		$hangman = new Hangman();
 		$hangman->check_letter('abc');
 
-		$result = $hangman->letters_guessed;
+		$letters_guessed = $hangman->letters_guessed;
 
-		$this->assertEquals('A', $result);
+		$this->assertEquals('A', $letters_guessed);
 	}
 
 	public function test_check_letter_function_passing_numbers() {
 		$hangman = new Hangman();
 		$hangman->check_letter('123');
 
-		$result = $hangman->letters_guessed;
+		$letters_guessed = $hangman->letters_guessed;
 
-		$this->assertEquals('', $result);
+		$this->assertEquals('', $letters_guessed);
 	}
 }
